@@ -18,6 +18,23 @@
             --transition: all 0.3s ease;
             --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             --radius: 8px;
+            
+            /* Light mode as default */
+            --bg-color: #F8F9FA;
+            --text-color: #1A1A1A;
+            --card-bg: white;
+            --header-bg: white;
+            --footer-bg: #1A1A1A;
+            --footer-text: white;
+        }
+
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #F8F9FA;
+            --card-bg: #1E1E1E;
+            --header-bg: #1A1A1A;
+            --footer-bg: #0D0D0D;
+            --footer-text: #CCCCCC;
         }
 
         * {
@@ -28,10 +45,11 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            color: var(--dark);
-            background-color: var(--light);
+            color: var(--text-color);
+            background-color: var(--bg-color);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -114,7 +132,7 @@
 
         /* Header Styles */
         header {
-            background-color: white;
+            background-color: var(--header-bg);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
@@ -150,7 +168,7 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.5rem;
-            color: var(--dark);
+            color: var(--text-color);
         }
 
         .nav-menu {
@@ -161,7 +179,7 @@
 
         .nav-link {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text-color);
             font-weight: 500;
             transition: var(--transition);
             position: relative;
@@ -192,7 +210,16 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--dark);
+            color: var(--text-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-left: 20px;
         }
 
         /* Hero Section */
@@ -268,7 +295,7 @@
 
         /* Services Section */
         .services {
-            background-color: white;
+            background-color: var(--card-bg);
         }
 
         .services-grid {
@@ -283,7 +310,8 @@
             padding: 30px;
             border-radius: var(--radius);
             transition: var(--transition);
-            background-color: var(--light);
+            background-color: var(--bg-color);
+            animation: float 6s ease-in-out infinite;
         }
 
         .service-card:hover {
@@ -417,7 +445,7 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--dark);
+            color: var(--text-color);
         }
 
         .stats-grid {
@@ -428,13 +456,14 @@
         }
 
         .stat-card {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: var(--radius);
             padding: 20px;
             box-shadow: var(--shadow);
             display: flex;
             align-items: center;
             gap: 15px;
+            animation: float 6s ease-in-out infinite;
         }
 
         .stat-icon {
@@ -502,7 +531,7 @@
         }
 
         .chart-card {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: var(--radius);
             padding: 20px;
             box-shadow: var(--shadow);
@@ -543,7 +572,7 @@
         }
 
         .recent-activities {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: var(--radius);
             padding: 20px;
             box-shadow: var(--shadow);
@@ -605,7 +634,7 @@
         }
 
         .auth-form {
-            background: white;
+            background: var(--card-bg);
             padding: 40px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -648,6 +677,8 @@
             border: 2px solid #eee;
             border-radius: var(--radius);
             transition: var(--transition);
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
 
         .form-input:focus {
@@ -690,58 +721,6 @@
             background-color: #267349;
         }
 
-        .social-auth {
-            margin-top: 25px;
-            text-align: center;
-        }
-
-        .social-auth p {
-            margin-bottom: 15px;
-            position: relative;
-            color: var(--gray);
-        }
-
-        .social-auth p:before,
-        .social-auth p:after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 40%;
-            height: 1px;
-            background-color: #eee;
-        }
-
-        .social-auth p:before {
-            left: 0;
-        }
-
-        .social-auth p:after {
-            right: 0;
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: #f5f5f5;
-            color: var(--dark);
-            transition: var(--transition);
-        }
-
-        .social-btn:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
         /* Page Specific Styles */
         .page-hero {
             padding-top: 150px;
@@ -776,11 +755,12 @@
         }
 
         .content-card {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: var(--radius);
             padding: 30px;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            animation: float 6s ease-in-out infinite;
         }
 
         .content-card:hover {
@@ -806,8 +786,8 @@
 
         /* Footer */
         footer {
-            background-color: var(--dark);
-            color: white;
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
             padding: 60px 0 30px;
         }
 
@@ -839,7 +819,7 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.5rem;
-            color: white;
+            color: var(--footer-text);
         }
 
         .footer-desc {
@@ -902,6 +882,8 @@
             padding: 12px;
             border: none;
             border-radius: var(--radius);
+            background-color: #333;
+            color: white;
         }
 
         .social-links {
@@ -934,6 +916,24 @@
             text-align: center;
             color: #999;
             font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive Styles */
@@ -978,7 +978,7 @@
                 top: 80px;
                 left: -100%;
                 flex-direction: column;
-                background-color: white;
+                background-color: var(--header-bg);
                 width: 100%;
                 text-align: center;
                 transition: 0.3s;
@@ -1028,15 +1028,19 @@
             </button>
             
             <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-                <li class="nav-item"><a href="discover.html" class="nav-link">Discover</a></li>
-                <li class="nav-item"><a href="help.html" class="nav-link">Who We Help</a></li>
-                <li class="nav-item"><a href="impact.html" class="nav-link">Impact</a></li>
-                <li class="nav-item"><a href="stories.html" class="nav-link">Stories</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="#discover" class="nav-link">Discover</a></li>
+                <li class="nav-item"><a href="#help" class="nav-link">Who We Help</a></li>
+                <li class="nav-item"><a href="#impact" class="nav-link">Impact</a></li>
+                <li class="nav-item"><a href="#stories" class="nav-link">Stories</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
                 <li class="nav-item"><a href="#" class="btn" id="donate-btn">Donate Now</a></li>
+                <li class="nav-item">
+                    <button class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
             </ul>
         </div>
     </header>
@@ -1044,14 +1048,14 @@
     <!-- Main Content -->
     <main id="main-content">
         <!-- Home Page Content -->
-        <section class="hero">
+        <section class="hero" id="home">
             <div class="container hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">A world where no <span class="highlight">child's life</span> is torn apart by war.</h1>
                     <p class="hero-desc">Every five seconds, one child dies in Africa due to malnutrition, war, and preventable diseases. Kolypso can help.</p>
                     <div class="hero-buttons">
                         <a href="#" class="btn" id="hero-donate-btn">Donate Now</a>
-                        <a href="discover.html" class="btn btn-secondary">Discover More</a>
+                        <a href="#discover" class="btn btn-secondary">Discover More</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -1064,44 +1068,193 @@
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section class="section services">
+        <!-- About Us Section -->
+        <section class="section services" id="about">
             <div class="container">
-                <h2 class="section-title text-center">How We Help</h2>
+                <h2 class="section-title text-center">About Us</h2>
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">
-                            <i class="fas fa-apple-alt"></i>
+                            <i class="fas fa-flag"></i>
                         </div>
-                        <h3 class="service-title">Healthy Food</h3>
-                        <p class="service-desc">We provide nutritious meals to children suffering from malnutrition.</p>
+                        <h3 class="service-title">Our Mission</h3>
+                        <p class="service-desc">Kolypso Charity was founded in 2010 with a mission to provide life-saving support to children across Africa.</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">
-                            <i class="fas fa-book"></i>
+                            <i class="fas fa-eye"></i>
                         </div>
-                        <h3 class="service-title">Education</h3>
-                        <p class="service-desc">Educational support and school supplies for children in need.</p>
+                        <h3 class="service-title">Our Vision</h3>
+                        <p class="service-desc">We envision an Africa where every child has access to nutritious food, clean water, quality education, and healthcare.</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">
-                            <i class="fas fa-tint"></i>
+                            <i class="fas fa-users"></i>
                         </div>
-                        <h3 class="service-title">Pure Water</h3>
-                        <p class="service-desc">Clean water access to prevent waterborne diseases.</p>
+                        <h3 class="service-title">Our Team</h3>
+                        <p class="service-desc">Our dedicated team of professionals and volunteers work tirelessly across 15 African countries to deliver aid.</p>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card fade-in">
                         <div class="service-icon">
-                            <i class="fas fa-medkit"></i>
+                            <i class="fas fa-award"></i>
                         </div>
-                        <h3 class="service-title">Medical Care</h3>
-                        <p class="service-desc">Medical aid and vaccinations to save lives.</p>
+                        <h3 class="service-title">Our Achievements</h3>
+                        <p class="service-desc">Over 1.2 million meals provided, 75,000+ children educated, and 250+ wells built since our inception.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Other sections would be here -->
+        <!-- Discover Section -->
+        <section class="section gallery" id="discover" style="background-color: var(--card-bg);">
+            <div class="container">
+                <h2 class="section-title text-center">Discover Our Programs</h2>
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="service-title">Food Security</h3>
+                        <p class="service-desc">Our agricultural programs help communities grow nutritious food and become self-sufficient.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="service-title">Education for All</h3>
+                        <p class="service-desc">We build schools, train teachers, and provide scholarships to ensure every child has access to quality education.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3 class="service-title">Community Development</h3>
+                        <p class="service-desc">We work with local communities to develop sustainable solutions that address their unique challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who We Help Section -->
+        <section class="section impact" id="help">
+            <div class="container">
+                <h2 class="section-title text-center">Who We Help</h2>
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h3 class="service-title">Children in Conflict Zones</h3>
+                        <p class="service-desc">We provide emergency aid, psychological support, and education to children affected by war and conflict.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-house-user"></i>
+                        </div>
+                        <h3 class="service-title">Rural Communities</h3>
+                        <p class="service-desc">We support remote villages with access to clean water, healthcare, and educational resources.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3 class="service-title">Children with Medical Needs</h3>
+                        <p class="service-desc">We provide medical treatments, surgeries, and ongoing care for children with health challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section class="section stories" id="impact" style="background-color: var(--card-bg);">
+            <div class="container">
+                <h2 class="section-title text-center">Our Impact</h2>
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="service-title">Nutrition</h3>
+                        <p class="service-desc">Over 1.2 million meals provided to malnourished children in the past year alone.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="service-title">Education</h3>
+                        <p class="service-desc">75,000+ children now have access to quality education through our school programs.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="service-title">Clean Water</h3>
+                        <p class="service-desc">250+ wells built, providing clean water to over 500,000 people in rural communities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stories Section -->
+        <section class="section map-section" id="stories">
+            <div class="container">
+                <h2 class="section-title text-center">Success Stories</h2>
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3 class="service-title">Amina's Journey</h3>
+                        <p class="service-desc">From unable to read to top of her class - how education changed Amina's life forever.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3 class="service-title">Samuel's Recovery</h3>
+                        <p class="service-desc">How life-saving surgery gave Samuel a second chance at a healthy childhood.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-hand-holding-water"></i>
+                        </div>
+                        <h3 class="service-title">Water for Wangechi Village</h3>
+                        <p class="service-desc">How a new well transformed daily life for an entire community in Kenya.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section cta" id="contact" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://storage.googleapis.com/a1aa/image/322b938e-858a-4d47-6739-0c9e9763caee.jpg'); background-size: cover; background-position: center;">
+            <div class="container">
+                <h2 class="cta-title">Contact Us</h2>
+                <p class="cta-desc">Get in touch with us to learn more, partner with us, or support our mission.</p>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <div class="content-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="content-title">Visit Us</h3>
+                        <p class="content-desc">123 Charity Avenue, Nairobi, Kenya</p>
+                    </div>
+                    <div class="content-card">
+                        <div class="content-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3 class="content-title">Call Us</h3>
+                        <p class="content-desc">+254 700 123 456<br>+254 711 987 654</p>
+                    </div>
+                    <div class="content-card">
+                        <div class="content-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="content-title">Email Us</h3>
+                        <p class="content-desc">info@kolypso.org<br>donations@kolypso.org</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -1109,7 +1262,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="footer-logo">
+                    <a href="#home" class="footer-logo">
                         <img src="https://storage.googleapis.com/a1aa/image/5befefaa-1804-4371-2d0f-27ab3ace1939.jpg" alt="Kolypso Charity Logo">
                         <span class="footer-logo-text">Kolypso</span>
                     </a>
@@ -1124,12 +1277,12 @@
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="discover.html">Discover</a></li>
-                        <li><a href="help.html">Who We Help</a></li>
-                        <li><a href="impact.html">Impact</a></li>
-                        <li><a href="stories.html">Stories</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#discover">Discover</a></li>
+                        <li><a href="#help">Who We Help</a></li>
+                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#stories">Stories</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -1157,7 +1310,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Kolypso Charity. All rights reserved.</p>
+                <p>&copy; 2025 Kolypso Charity. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1188,15 +1341,6 @@
                     <a href="#" class="forgot-password">Forgot password?</a>
                 </div>
                 <button type="submit" class="form-submit">Login</button>
-                
-                <div class="social-auth">
-                    <p>Or login with</p>
-                    <div class="social-buttons">
-                        <a href="#" class="social-btn"><i class="fab fa-google"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
             </form>
             
             <form class="auth-form" id="register-form" style="display: none;">
@@ -1217,606 +1361,138 @@
                     <input type="password" class="form-input" id="register-confirm" placeholder="Confirm your password">
                 </div>
                 <button type="submit" class="form-submit">Register</button>
-                
-                <div class="social-auth">
-                    <p>Or register with</p>
-                    <div class="social-buttons">
-                        <a href="#" class="social-btn"><i class="fab fa-google"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
             </form>
         </div>
     </div>
 
     <script>
-        // Page Management
-        const pages = {
-            'index.html': document.getElementById('main-content').innerHTML,
-            'about.html': `
-                <section class="page-hero">
-                    <div class="container">
-                        <h1 class="hero-title">About Kolypso Charity</h1>
-                        <p class="hero-desc">Learn about our mission, vision, and the dedicated team working to make a difference in Africa.</p>
-                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                    </div>
-                </section>
-                <section class="content-section">
-                    <div class="container">
-                        <h2 class="section-title text-center">Our Story</h2>
-                        <div class="content-grid">
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-flag"></i>
-                                </div>
-                                <h3 class="content-title">Our Mission</h3>
-                                <p class="content-desc">Kolypso Charity was founded in 2010 with a mission to provide life-saving support to children across Africa who are affected by poverty, malnutrition, and conflict.</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-eye"></i>
-                                </div>
-                                <h3 class="content-title">Our Vision</h3>
-                                <p class="content-desc">We envision an Africa where every child has access to nutritious food, clean water, quality education, and healthcare, regardless of their circumstances.</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <h3 class="content-title">Our Team</h3>
-                                <p class="content-desc">Our dedicated team of professionals and volunteers work tirelessly across 15 African countries to deliver aid and support to those who need it most.</p>
-                                <a href="#" class="btn">Meet the Team</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            `,
-            'discover.html': `
-                <section class="page-hero">
-                    <div class="container">
-                        <h1 class="hero-title">Discover Our Programs</h1>
-                        <p class="hero-desc">Explore the various initiatives and programs we've developed to help children across Africa.</p>
-                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                    </div>
-                </section>
-                <section class="content-section">
-                    <div class="container">
-                        <h2 class="section-title text-center">Our Initiatives</h2>
-                        <div class="content-grid">
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-seedling"></i>
-                                </div>
-                                <h3 class="content-title">Food Security</h3>
-                                <p class="content-desc">Our agricultural programs help communities grow nutritious food and become self-sufficient, reducing reliance on external aid.</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </div>
-                                <h3 class="content-title">Education for All</h3>
-                                <p class="content-desc">We build schools, train teachers, and provide scholarships to ensure every child has access to quality education.</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-hand-holding-heart"></i>
-                                </div>
-                                <h3 class="content-title">Community Development</h3>
-                                <p class="content-desc">We work with local communities to develop sustainable solutions that address their unique challenges and needs.</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            `,
-            'help.html': `
-                <section class="page-hero">
-                    <div class="container">
-                        <h1 class="hero-title">Who We Help</h1>
-                        <p class="hero-desc">Learn about the communities and children we support across Africa.</p>
-                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                    </div>
-                </section>
-                <section class="content-section">
-                    <div class="container">
-                        <h2 class="section-title text-center">Our Beneficiaries</h2>
-                        <div class="content-grid">
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-child"></i>
-                                </div>
-                                <h3 class="content-title">Children in Conflict Zones</h3>
-                                <p class="content-desc">We provide emergency aid, psychological support, and education to children affected by war and conflict.</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-house-user"></i>
-                                </div>
-                                <h3 class="content-title">Rural Communities</h3>
-                                <p class="content-desc">We support remote villages with access to clean water, healthcare, and educational resources.</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-hospital"></i>
-                                </div>
-                                <h3 class="content-title">Children with Medical Needs</h3>
-                                <p class="content-desc">We provide medical treatments, surgeries, and ongoing care for children with health challenges.</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            `,
-            'impact.html': `
-                <section class="page-hero">
-                    <div class="container">
-                        <h1 class="hero-title">Our Impact</h1>
-                        <p class="hero-desc">See the measurable difference we've made in the lives of children across Africa.</p>
-                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                    </div>
-                </section>
-                <section class="content-section">
-                    <div class="container">
-                        <h2 class="section-title text-center">By The Numbers</h2>
-                        <div class="content-grid">
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-utensils"></i>
-                                </div>
-                                <h3 class="content-title">Nutrition</h3>
-                                <p class="content-desc">Over 1.2 million meals provided to malnourished children in the past year alone.</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </div>
-                                <h3 class="content-title">Education</h3>
-                                <p class="content-desc">75,000+ children now have access to quality education through our school programs.</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-tint"></i>
-                                </div>
-                                <h3 class="content-title">Clean Water</h3>
-                                <p class="content-desc">250+ wells built, providing clean water to over 500,000 people in rural communities.</p>
-                                <a href="#" class="btn">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            `,
-            'stories.html': `
-                <section class="page-hero">
-                    <div class="container">
-                        <h1 class="hero-title">Success Stories</h1>
-                        <p class="hero-desc">Read inspiring stories of transformation from the children and communities we've helped.</p>
-                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                    </div>
-                </section>
-                <section class="content-section">
-                    <div class="container">
-                        <h2 class="section-title text-center">Stories of Hope</h2>
-                        <div class="content-grid">
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-user-graduate"></i>
-                                </div>
-                                <h3 class="content-title">Amina's Journey</h3>
-                                <p class="content-desc">From unable to read to top of her class - how education changed Amina's life forever.</p>
-                                <a href="#" class="btn">Read Story</a>
-                            </div>
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-heartbeat"></i>
-                                </div>
-                                <h3 class="content-title">Samuel's Recovery</h3>
-                                <p class="content-desc">How life-saving surgery gave Samuel a second chance at a healthy childhood.</p>
-                                <a href="#" class="btn">Read Story</a>
-                            </div>
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-hand-holding-water"></i>
-                                </div>
-                                <h3 class="content-title">Water for Wangechi Village</h3>
-                                <p class="content-desc">How a new well transformed daily life for an entire community in Kenya.</p>
-                                <a href="#" class="btn">Read Story</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            `,
-            'contact.html': `
-                <section class="page-hero">
-                    <div class="container">
-                        <h1 class="hero-title">Contact Us</h1>
-                        <p class="hero-desc">Get in touch with us to learn more, partner with us, or support our mission.</p>
-                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                    </div>
-                </section>
-                <section class="content-section">
-                    <div class="container">
-                        <h2 class="section-title text-center">Get In Touch</h2>
-                        <div class="content-grid">
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <h3 class="content-title">Visit Us</h3>
-                                <p class="content-desc">123 Charity Avenue, Nairobi, Kenya</p>
-                                <a href="#" class="btn">Get Directions</a>
-                            </div>
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <h3 class="content-title">Call Us</h3>
-                                <p class="content-desc">+254 700 123 456<br>+254 711 987 654</p>
-                                <a href="#" class="btn">Call Now</a>
-                            </div>
-                            <div class="content-card">
-                                <div class="content-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <h3 class="content-title">Email Us</h3>
-                                <p class="content-desc">info@kolypso.org<br>donations@kolypso.org</p>
-                                <a href="#" class="btn">Send Email</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            `,
-            'login.html': `
-                <section class="auth-container">
-                    <div class="auth-form">
-                        <div class="auth-tabs">
-                            <div class="auth-tab active" data-tab="login">Login</div>
-                            <div class="auth-tab" data-tab="register">Register</div>
-                        </div>
-                        
-                        <form class="auth-form" id="login-form">
-                            <div class="form-group">
-                                <label class="form-label" for="login-email">Email</label>
-                                <input type="email" class="form-input" id="login-email" placeholder="Enter your email">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="login-password">Password</label>
-                                <input type="password" class="form-input" id="login-password" placeholder="Enter your password">
-                            </div>
-                            <div class="form-options">
-                                <div class="remember-me">
-                                    <input type="checkbox" id="remember-me">
-                                    <label for="remember-me">Remember me</label>
-                                </div>
-                                <a href="#" class="forgot-password">Forgot password?</a>
-                            </div>
-                            <button type="submit" class="form-submit">Login</button>
-                            
-                            <div class="social-auth">
-                                <p>Or login with</p>
-                                <div class="social-buttons">
-                                    <a href="#" class="social-btn"><i class="fab fa-google"></i></a>
-                                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
-                                </div>
-                            </div>
-                        </form>
-                        
-                        <form class="auth-form" id="register-form" style="display: none;">
-                            <div class="form-group">
-                                <label class="form-label" for="register-name">Full Name</label>
-                                <input type="text" class="form-input" id="register-name" placeholder="Enter your full name">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="register-email">Email</label>
-                                <input type="email" class="form-input" id="register-email" placeholder="Enter your email">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="register-password">Password</label>
-                                <input type="password" class="form-input" id="register-password" placeholder="Create a password">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="register-confirm">Confirm Password</label>
-                                <input type="password" class="form-input" id="register-confirm" placeholder="Confirm your password">
-                            </div>
-                            <button type="submit" class="form-submit">Register</button>
-                            
-                            <div class="social-auth">
-                                <p>Or register with</p>
-                                <div class="social-buttons">
-                                    <a href="#" class="social-btn"><i class="fab fa-google"></i></a>
-                                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="text-center" style="margin-top: 20px;">
-                            <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-                        </div>
-                    </div>
-                </section>
-            `,
-            'dashboard.html': `
-                <div class="dashboard-container">
-                    <div class="dashboard-sidebar" id="dashboard-sidebar">
-                        <div class="sidebar-header">
-                            <div class="user-info">
-                                <img src="https://ui-avatars.com/api/?name=User+Name&background=2E8B57&color=fff" alt="User Avatar" class="user-avatar">
-                                <div>
-                                    <div class="user-name" id="dashboard-user-name">User Name</div>
-                                    <div class="user-role">Supporter</div>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="sidebar-menu">
-                            <li class="menu-item">
-                                <a href="#" class="menu-link active" data-section="overview">
-                                    <span class="menu-icon"><i class="fas fa-chart-pie"></i></span>
-                                    <span>Overview</span>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="#" class="menu-link" data-section="donations">
-                                    <span class="menu-icon"><i class="fas fa-donate"></i></span>
-                                    <span>My Donations</span>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="#" class="menu-link" data-section="profile">
-                                    <span class="menu-icon"><i class="fas fa-user"></i></span>
-                                    <span>Profile</span>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="#" class="menu-link" data-section="impact">
-                                    <span class="menu-icon"><i class="fas fa-hand-holding-heart"></i></span>
-                                    <span>My Impact</span>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="#" class="menu-link" id="logout-btn">
-                                    <span class="menu-icon"><i class="fas fa-sign-out-alt"></i></span>
-                                    <span>Logout</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="dashboard-main" id="dashboard-main">
-                        <div class="dashboard-header">
-                            <h1 class="page-title">Dashboard Overview</h1>
-                            <button class="toggle-sidebar" id="toggle-sidebar">
-                                <i class="fas fa-bars"></i>
-                            </button>
-                        </div>
-                        
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <div class="stat-icon icon-primary">
-                                    <i class="fas fa-donate"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <div class="stat-title">Total Donated</div>
-                                    <div class="stat-value" id="total-donated">$0.00</div>
-                                    <div class="stat-change change-up">
-                                        <i class="fas fa-arrow-up"></i> <span>12% this year</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon icon-secondary">
-                                    <i class="fas fa-hand-holding-usd"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <div class="stat-title">Monthly Giving</div>
-                                    <div class="stat-value" id="monthly-giving">$0.00</div>
-                                    <div class="stat-change change-up">
-                                        <i class="fas fa-arrow-up"></i> <span>Active</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon icon-accent">
-                                    <i class="fas fa-children"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <div class="stat-title">Children Helped</div>
-                                    <div class="stat-value" id="children-helped">0</div>
-                                    <div class="stat-change change-up">
-                                        <i class="fas fa-arrow-up"></i> <span>25% this year</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon icon-dark">
-                                    <i class="fas fa-calendar"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <div class="stat-title">Member Since</div>
-                                    <div class="stat-value" id="member-since">2023</div>
-                                    <div class="stat-change change-up">
-                                        <i class="fas fa-heart"></i> <span>Loyal supporter</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="charts-row">
-                            <div class="chart-card">
-                                <div class="chart-header">
-                                    <h2 class="chart-title">Donation History</h2>
-                                    <div class="chart-actions">
-                                        <button class="chart-action"><i class="fas fa-download"></i></button>
-                                        <button class="chart-action"><i class="fas fa-expand"></i></button>
-                                    </div>
-                                </div>
-                                <div class="chart-container">
-                                    <canvas id="donationChart"></canvas>
-                                </div>
-                            </div>
-                            <div class="chart-card">
-                                <div class="chart-header">
-                                    <h2 class="chart-title">Impact Distribution</h2>
-                                    <div class="chart-actions">
-                                        <button class="chart-action"><i class="fas fa-download"></i></button>
-                                    </div>
-                                </div>
-                                <div class="chart-container">
-                                    <canvas id="impactChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="recent-activities">
-                            <h2 class="chart-title">Recent Activities</h2>
-                            <ul class="activity-list" id="activity-list">
-                                <li class="activity-item">
-                                    <div class="activity-icon icon-primary">
-                                        <i class="fas fa-donate"></i>
-                                    </div>
-                                    <div class="activity-content">
-                                        <h3 class="activity-title">Monthly Donation Processed</h3>
-                                        <p class="activity-desc">Your monthly donation of $25.00 was successfully processed.</p>
-                                        <div class="activity-time">2 hours ago</div>
-                                    </div>
-                                </li>
-                                <li class="activity-item">
-                                    <div class="activity-icon icon-accent">
-                                        <i class="fas fa-envelope-open-text"></i>
-                                    </div>
-                                    <div class="activity-content">
-                                        <h3 class="activity-title">Impact Report Available</h3>
-                                        <p class="activity-desc">Your personalized impact report for Q2 2023 is now available.</p>
-                                        <div class="activity-time">3 days ago</div>
-                                    </div>
-                                </li>
-                                <li class="activity-item">
-                                    <div class="activity-icon icon-secondary">
-                                        <i class="fas fa-user-edit"></i>
-                                    </div>
-                                    <div class="activity-content">
-                                        <h3 class="activity-title">Profile Updated</h3>
-                                        <p class="activity-desc">You updated your account information.</p>
-                                        <div class="activity-time">1 week ago</div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            `
-        };
-
-        // Initialize the page
-        function initPage() {
-            const path = window.location.pathname.split('/').pop() || 'index.html';
-            const mainContent = document.getElementById('main-content');
+        // Theme Toggle Functionality
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+        
+        // Check for saved theme preference or respect OS preference
+        if (localStorage.getItem('theme') === 'dark' || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))) {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
             
-            if (pages[path]) {
-                mainContent.innerHTML = pages[path];
-                
-                // If it's the dashboard, initialize dashboard functionality
-                if (path === 'dashboard.html') {
-                    initDashboard();
-                }
-                
-                // If it's login page, initialize auth functionality
-                if (path === 'login.html') {
-                    initAuth();
-                }
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
             }
-            
-            // Update active navigation link
-            updateActiveNavLink(path);
-        }
+        });
 
-        // Update active navigation link
-        function updateActiveNavLink(path) {
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href === path) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('nav-menu').classList.remove('active');
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+
+        // Fade-in animation for elements
+        function checkFade() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
                 }
             });
         }
+        
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
 
-        // Initialize authentication functionality
-        function initAuth() {
-            const authTabs = document.querySelectorAll('.auth-tab');
-            const loginForm = document.getElementById('login-form');
-            const registerForm = document.getElementById('register-form');
-            
-            // Switch between login and register tabs
-            authTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    authTabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    if (this.getAttribute('data-tab') === 'login') {
-                        loginForm.style.display = 'block';
-                        registerForm.style.display = 'none';
-                    } else {
-                        loginForm.style.display = 'none';
-                        registerForm.style.display = 'block';
-                    }
+        // Login Modal Functionality
+        const authModal = document.getElementById('auth-modal');
+        const closeAuthModal = document.getElementById('close-auth-modal');
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.textContent === 'Login') {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    authModal.style.display = 'flex';
                 });
-            });
-            
-            // Handle login form submission
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = document.getElementById('login-email').value;
-                const password = document.getElementById('login-password').value;
+            }
+        });
+        
+        closeAuthModal.addEventListener('click', function() {
+            authModal.style.display = 'none';
+        });
+        
+        // Auth tab switching
+        authTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                authTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
                 
-                if (email && password) {
-                    // Save user to localStorage
-                    const user = {
-                        email: email,
-                        name: email.split('@')[0], // Simple name from email
-                        joinDate: new Date().toISOString().split('T')[0]
-                    };
-                    
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                    
-                    // Redirect to dashboard
-                    window.location.href = 'dashboard.html';
+                if (this.getAttribute('data-tab') === 'login') {
+                    loginForm.style.display = 'block';
+                    registerForm.style.display = 'none';
                 } else {
-                    alert('Please enter both email and password.');
+                    loginForm.style.display = 'none';
+                    registerForm.style.display = 'block';
                 }
             });
+        });
+        
+        // Form submissions
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
             
-            // Handle register form submission
-            registerForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const name = document.getElementById('register-name').value;
-                const email = document.getElementById('register-email').value;
-                const password = document.getElementById('register-password').value;
-                const confirm = document.getElementById('register-confirm').value;
-                
-                if (!name || !email || !password || !confirm) {
-                    alert('Please fill in all fields.');
-                    return;
-                }
-                
-                if (password !== confirm) {
-                    alert('Passwords do not match.');
-                    return;
-                }
-                
+            // Simple validation
+            if (email && password) {
                 // Save user to localStorage
                 const user = {
                     email: email,
-                    name: name,
+                    name: email.split('@')[0], // Simple name from email
                     joinDate: new Date().toISOString().split('T')[0]
                 };
                 
@@ -1824,75 +1500,62 @@
                 
                 // Redirect to dashboard
                 window.location.href = 'dashboard.html';
-            });
-        }
-
-        // Initialize dashboard functionality
-        function initDashboard() {
-            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            } else {
+                alert('Please enter both email and password.');
+            }
+        });
+        
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
             
-            if (!currentUser) {
-                window.location.href = 'login.html';
+            // Simple validation
+            if (!name || !email || !password || !confirm) {
+                alert('Please fill in all fields.');
                 return;
             }
             
-            // Update user info
-            document.getElementById('dashboard-user-name').textContent = currentUser.name;
-            document.getElementById('member-since').textContent = currentUser.joinDate.split('-')[0];
+            if (password !== confirm) {
+                alert('Passwords do not match.');
+                return;
+            }
             
-            // Generate random stats for demo
-            document.getElementById('total-donated').textContent = '$' + (Math.floor(Math.random() * 2000) + 500).toLocaleString();
-            document.getElementById('monthly-giving').textContent = '$' + (Math.floor(Math.random() * 100) + 25);
-            document.getElementById('children-helped').textContent = (Math.floor(Math.random() * 50) + 10);
+            // Save user to localStorage
+            const user = {
+                email: email,
+                name: name,
+                joinDate: new Date().toISOString().split('T')[0]
+            };
             
-            // Toggle sidebar
-            document.getElementById('toggle-sidebar').addEventListener('click', function() {
-                document.getElementById('dashboard-sidebar').classList.toggle('active');
-            });
+            localStorage.setItem('currentUser', JSON.stringify(user));
             
-            // Handle logout
-            document.getElementById('logout-btn').addEventListener('click', function(e) {
-                e.preventDefault();
-                localStorage.removeItem('currentUser');
-                window.location.href = 'index.html';
-            });
-            
-            // Handle menu clicks
-            const menuLinks = document.querySelectorAll('.menu-link');
-            menuLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    if (this.id !== 'logout-btn') {
-                        e.preventDefault();
-                        
-                        menuLinks.forEach(l => l.classList.remove('active'));
-                        this.classList.add('active');
-                        
-                        const section = this.getAttribute('data-section');
-                        document.querySelector('.page-title').textContent = 
-                            section.charAt(0).toUpperCase() + section.slice(1);
-                    }
-                });
-            });
-        }
+            // Redirect to dashboard
+            window.location.href = 'dashboard.html';
+        });
 
-        // Initialize the page when loaded
+        // Close modals when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === authModal) {
+                authModal.style.display = 'none';
+            }
+        });
+
+        // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
-            initPage();
+            // Set current year in footer
+            document.querySelector('.footer-bottom p').innerHTML = `&copy; 2025 Kolypso Charity. All rights reserved.`;
             
-            // Mobile menu toggle
-            document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
-                document.getElementById('nav-menu').classList.toggle('active');
-            });
-            
-            // Header scroll effect
-            window.addEventListener('scroll', function() {
-                const header = document.getElementById('header');
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
+            // Check if user is logged in
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                const loginLink = document.querySelector('.nav-link[href="login.html"]');
+                if (loginLink) {
+                    loginLink.innerHTML = `<i class="fas fa-user"></i> ${currentUser.name}`;
                 }
-            });
+            }
         });
     </script>
 </body>
