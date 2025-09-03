@@ -6,7 +6,6 @@
     <title>Kolypso Charity - Making a Difference in Africa</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <style>
         :root {
             --primary: #2E8B57;
@@ -23,20 +22,20 @@
             --bg-color: #F8F9FA;
             --text-color: #1A1A1A;
             --card-bg: white;
-            --header-bg: rgba(255, 255, 255, 0.8); /* Glass effect */
+            --header-bg: rgba(255, 255, 255, 0.9);
             --footer-bg: #1A1A1A;
             --footer-text: white;
-            --glass-blue: rgba(0, 123, 255, 0.1); /* Blue tint for glass effect */
+            --glass-blue: rgba(30, 144, 255, 0.1);
         }
 
         .dark-mode {
             --bg-color: #121212;
             --text-color: #F8F9FA;
             --card-bg: #1E1E1E;
-            --header-bg: rgba(26, 26, 26, 0.8); /* Dark glass effect */
+            --header-bg: rgba(26, 26, 26, 0.9);
             --footer-bg: #0D0D0D;
             --footer-text: #CCCCCC;
-            --glass-blue: rgba(30, 144, 255, 0.15); /* Blue tint for dark mode */
+            --glass-blue: rgba(30, 144, 255, 0.15);
         }
 
         * {
@@ -111,6 +110,7 @@
             border: 1px solid var(--primary);
             padding: 8px 16px;
             font-size: 14px;
+            margin-top: 15px;
         }
 
         .btn-readmore:hover {
@@ -151,24 +151,13 @@
             background-color: var(--header-bg);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-blue);
+            border-bottom: 1px solid var(--glass-blue);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             position: fixed;
-            width: 95%;
-            top: 20px;
-            left: 2.5%;
-            z-index: 1000;
-            transition: var(--transition);
-            border-radius: 50px;
-        }
-
-        header.scrolled {
             width: 100%;
             top: 0;
-            left: 0;
-            border-radius: 0;
-            border: none;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
         }
 
         .header-container {
@@ -377,308 +366,58 @@
             margin-top: 15px;
         }
 
-        /* Dashboard Styles */
-        .dashboard-container {
-            display: flex;
-            min-height: 100vh;
-            padding-top: 80px;
-        }
-
-        .dashboard-sidebar {
-            width: 250px;
-            background-color: var(--dark);
-            color: white;
-            position: fixed;
-            height: calc(100vh - 80px);
-            padding: 30px 0;
-            transition: var(--transition);
-        }
-
-        .dashboard-sidebar.hidden {
-            transform: translateX(-100%);
-        }
-
-        .sidebar-header {
-            padding: 0 20px 20px;
-            border-bottom: 1px solid #444;
-            margin-bottom: 20px;
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .user-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--secondary);
-        }
-
-        .user-name {
-            font-weight: 500;
-        }
-
-        .user-role {
-            font-size: 0.8rem;
-            color: #ccc;
-        }
-
-        .sidebar-menu {
-            list-style: none;
-        }
-
-        .menu-item {
-            margin-bottom: 5px;
-        }
-
-        .menu-link {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 12px 20px;
-            color: #ccc;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .menu-link:hover, .menu-link.active {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding-left: 25px;
-        }
-
-        .menu-link.active {
-            border-left: 4px solid var(--secondary);
-        }
-
-        .menu-icon {
-            width: 20px;
+        /* Page Specific Styles */
+        .page-hero {
+            padding-top: 150px;
+            padding-bottom: 80px;
             text-align: center;
-        }
-
-        .dashboard-main {
-            flex: 1;
-            margin-left: 250px;
-            padding: 30px;
-            transition: var(--transition);
-        }
-
-        .dashboard-main.expanded {
-            margin-left: 0;
-        }
-
-        .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .page-title {
-            font-size: 1.8rem;
-        }
-
-        .toggle-sidebar {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-color);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .stat-card {
-            background-color: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .stat-card:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .stat-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://storage.googleapis.com/a1aa/image/322b938e-858a-4d47-6739-0c9e9763caee.jpg');
+            background-size: cover;
+            background-position: center;
             color: white;
         }
 
-        .icon-primary {
-            background-color: var(--primary);
+        .content-section {
+            padding: 80px 0;
         }
 
-        .icon-secondary {
-            background-color: var(--secondary);
-        }
-
-        .icon-accent {
-            background-color: var(--accent);
-        }
-
-        .icon-dark {
-            background-color: var(--dark);
-        }
-
-        .stat-info {
-            flex: 1;
-        }
-
-        .stat-title {
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-bottom: 5px;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .stat-change {
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .change-up {
-            color: #28a745;
-        }
-
-        .change-down {
-            color: #dc3545;
-        }
-
-        .charts-row {
+        .content-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
         }
 
-        .chart-card {
+        .content-card {
             background-color: var(--card-bg);
             border-radius: var(--radius);
-            padding: 20px;
+            padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
         }
 
-        .chart-card:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .chart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .content-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
             margin-bottom: 20px;
         }
 
-        .chart-title {
-            font-size: 1.2rem;
-            font-weight: 600;
+        .content-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
 
-        .chart-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .chart-action {
-            background: none;
-            border: none;
+        .content-desc {
             color: var(--gray);
-            cursor: pointer;
-            transition: var(--transition);
+            margin-bottom: 20px;
         }
 
-        .chart-action:hover {
-            color: var(--primary);
-        }
-
-        .chart-container {
-            height: 300px;
-            position: relative;
-        }
-
-        .recent-activities {
-            background-color: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .recent-activities:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .activity-list {
-            list-style: none;
-        }
-
-        .activity-item {
-            display: flex;
-            gap: 15px;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .activity-item:last-child {
-            border-bottom: none;
-        }
-
-        .activity-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .activity-content {
-            flex: 1;
-        }
-
-        .activity-title {
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-
-        .activity-desc {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .activity-time {
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-
-        /* Login/Register Page Styles */
+        /* Login Page Styles */
         .auth-page {
             min-height: 100vh;
             display: flex;
@@ -687,36 +426,16 @@
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://storage.googleapis.com/a1aa/image/322b938e-858a-4d47-6739-0c9e9763caee.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            padding: 100px 0 50px;
+            padding: 100px 0;
         }
 
         .auth-container {
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .auth-form-container {
-            display: flex;
+            max-width: 450px;
             background: var(--card-bg);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .auth-image {
-            flex: 1;
-            background: url('https://storage.googleapis.com/a1aa/image/9185540f-9b87-4e83-3ac6-b8eabff85999.jpg');
-            background-size: cover;
-            background-position: center;
-            display: none;
-        }
-
-        .auth-form-wrapper {
-            flex: 1;
             padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
         .auth-tabs {
@@ -801,67 +520,57 @@
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* Page Specific Styles */
-        .page-hero {
-            padding-top: 150px;
-            padding-bottom: 80px;
-            background: linear-gradient(135deg, rgba(255,215,0,0.2) 0%, rgba(46,139,87,0.2) 100%);
-            text-align: center;
-        }
-
-        .back-home {
-            display: inline-block;
-            margin-top: 30px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .back-home:hover {
-            color: var(--accent);
-            transform: translateX(-5px);
-        }
-
-        .content-section {
-            padding: 80px 0;
-        }
-
-        .content-grid {
+        /* Donate Page Styles */
+        .donate-options {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 30px;
             margin-top: 50px;
         }
 
-        .content-card {
+        .donate-option {
             background-color: var(--card-bg);
             border-radius: var(--radius);
             padding: 30px;
+            text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
-            animation: float 6s ease-in-out infinite;
         }
 
-        .content-card:hover {
+        .donate-option:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .content-icon {
-            font-size: 2.5rem;
+        .donate-amounts {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .amount-btn {
+            padding: 10px 15px;
+            border: 2px solid var(--primary);
+            background: transparent;
             color: var(--primary);
-            margin-bottom: 20px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
         }
 
-        .content-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+        .amount-btn.active, .amount-btn:hover {
+            background: var(--primary);
+            color: white;
         }
 
-        .content-desc {
-            color: var(--gray);
+        .custom-amount {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: var(--radius);
             margin-bottom: 20px;
+            text-align: center;
         }
 
         /* Footer */
@@ -869,7 +578,6 @@
             background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://storage.googleapis.com/a1aa/image/322b938e-858a-4d47-6739-0c9e9763caee.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             color: var(--footer-text);
             padding: 60px 0 30px;
             position: relative;
@@ -1039,13 +747,16 @@
             transform: translateY(0);
         }
 
-        /* Responsive Styles */
-        @media (min-width: 992px) {
-            .auth-image {
-                display: block;
-            }
+        /* Page Content */
+        .page-content {
+            display: none;
         }
 
+        .page-content.active {
+            display: block;
+        }
+
+        /* Responsive Styles */
         @media (max-width: 992px) {
             .hero-content {
                 flex-direction: column;
@@ -1057,27 +768,6 @@
             
             .section-title {
                 font-size: 2rem;
-            }
-
-            .dashboard-sidebar {
-                transform: translateX(-100%);
-                z-index: 1000;
-            }
-
-            .dashboard-sidebar.active {
-                transform: translateX(0);
-            }
-
-            .dashboard-main {
-                margin-left: 0;
-            }
-
-            .toggle-sidebar {
-                display: block;
-            }
-
-            .charts-row {
-                grid-template-columns: 1fr;
             }
         }
 
@@ -1119,11 +809,7 @@
                 padding-top: 120px;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .auth-form-wrapper {
+            .auth-container {
                 padding: 30px 20px;
             }
         }
@@ -1133,7 +819,7 @@
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
-            <a href="index.html" class="logo">
+            <a href="#" class="logo" data-page="home">
                 <img src="https://storage.googleapis.com/a1aa/image/5befefaa-1804-4371-2d0f-27ab3ace1939.jpg" alt="Kolypso Charity Logo">
                 <span class="logo-text">Kolypso</span>
             </a>
@@ -1143,14 +829,15 @@
             </button>
             
             <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
-                <li class="nav-item"><a href="#discover" class="nav-link">Discover</a></li>
-                <li class="nav-item"><a href="#help" class="nav-link">Who We Help</a></li>
-                <li class="nav-item"><a href="#impact" class="nav-link">Impact</a></li>
-                <li class="nav-item"><a href="#stories" class="nav-link">Stories</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
-                <li class="nav-item"><a href="#" class="btn" id="donate-btn">Donate Now</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="home">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="discover">Discover</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="help">Who We Help</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="impact">Impact</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="stories">Stories</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-page="login">Login</a></li>
+                <li class="nav-item"><a href="#" class="btn" data-page="donate">Donate Now</a></li>
                 <li class="nav-item">
                     <button class="theme-toggle" id="theme-toggle">
                         <i class="fas fa-moon"></i>
@@ -1162,90 +849,455 @@
 
     <!-- Main Content -->
     <main id="main-content">
-        <!-- Home Page Content -->
-        <section class="hero" id="home">
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">A world where no <span class="highlight">child's life</span> is torn apart by war.</h1>
-                    <p class="hero-desc">Every five seconds, one child dies in Africa due to malnutrition, war, and preventable diseases. Kolypso can help.</p>
-                    <div class="hero-buttons">
-                        <a href="#" class="btn" id="hero-donate-btn">Donate Now</a>
-                        <a href="#discover" class="btn btn-secondary">Discover More</a>
+        <!-- Home Page -->
+        <div id="home-page" class="page-content active">
+            <section class="hero">
+                <div class="container hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">A world where no <span class="highlight">child's life</span> is torn apart by war.</h1>
+                        <p class="hero-desc">Every five seconds, one child dies in Africa due to malnutrition, war, and preventable diseases. Kolypso can help.</p>
+                        <div class="hero-buttons">
+                            <a href="#" class="btn" data-page="donate">Donate Now</a>
+                            <a href="#" class="btn btn-secondary" data-page="discover">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://storage.googleapis.com/a1aa/image/9185540f-9b87-4e83-3ac6-b8eabff85999.jpg" alt="African child portrait" class="hero-img">
+                        <div class="stat-badge">
+                            <div class="stat-number">288</div>
+                            <div class="stat-desc">children die every minute in Africa</div>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="https://storage.googleapis.com/a1aa/image/9185540f-9b87-4e83-3ac6-b8eabff85999.jpg" alt="African child portrait" class="hero-img">
-                    <div class="stat-badge">
-                        <div class="stat-number">288</div>
-                        <div class="stat-desc">children die every minute in Africa</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- About Us Section -->
-        <section class="section services" id="about">
-            <div class="container">
-                <h2 class="section-title text-center">About Us</h2>
-                <div class="services-grid">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-flag"></i>
+            <!-- About Us Section -->
+            <section class="section services">
+                <div class="container">
+                    <h2 class="section-title text-center">About Us</h2>
+                    <div class="services-grid">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <h3 class="service-title">Our Mission</h3>
+                            <p class="service-desc">Kolypso Charity was founded in 2010 with a mission to provide life-saving support to children across Africa.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>Our mission is deeply rooted in the belief that every child deserves a chance to thrive. We work directly with local communities to identify their most pressing needs and develop sustainable solutions that create lasting change.</p>
+                                <p>Through partnerships with local organizations, governments, and international agencies, we maximize our impact and ensure that resources are used efficiently to benefit those who need them most.</p>
+                            </div>
                         </div>
-                        <h3 class="service-title">Our Mission</h3>
-                        <p class="service-desc">Kolypso Charity was founded in 2010 with a mission to provide life-saving support to children across Africa.</p>
-                        <button class="btn btn-readmore readmore-toggle">Read More</button>
-                        <div class="readmore-content">
-                            <p>Our mission is deeply rooted in the belief that every child deserves a chance to thrive. We work directly with local communities to identify their most pressing needs and develop sustainable solutions that create lasting change.</p>
-                            <p>Through partnerships with local organizations, governments, and international agencies, we maximize our impact and ensure that resources are used efficiently to benefit those who need them most.</p>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3 class="service-title">Our Vision</h3>
+                            <p class="service-desc">We envision an Africa where every child has access to nutritious food, clean water, quality education, and healthcare.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>Our vision extends beyond immediate relief to long-term transformation. We see communities that are self-sufficient, resilient, and empowered to shape their own futures.</p>
+                                <p>By investing in children today, we're building the leaders of tomorrow who will continue the work of creating a more equitable and prosperous Africa for all.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-eye"></i>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="service-title">Our Team</h3>
+                            <p class="service-desc">Our dedicated team of professionals and volunteers work tirelessly across 15 African countries to deliver aid.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>Our team comprises experts in international development, public health, education, agriculture, and emergency response. Over 85% of our staff are local hires, ensuring cultural understanding and community trust.</p>
+                                <p>We also work with thousands of volunteers who contribute their time, skills, and passion to further our mission. Their dedication is the backbone of our organization.</p>
+                            </div>
                         </div>
-                        <h3 class="service-title">Our Vision</h3>
-                        <p class="service-desc">We envision an Africa where every child has access to nutritious food, clean water, quality education, and healthcare.</p>
-                        <button class="btn btn-readmore readmore-toggle">Read More</button>
-                        <div class="readmore-content">
-                            <p>Our vision extends beyond immediate relief to long-term transformation. We see communities that are self-sufficient, resilient, and empowered to shape their own futures.</p>
-                            <p>By investing in children today, we're building the leaders of tomorrow who will continue the work of creating a more equitable and prosperous Africa for all.</p>
-                        </div>
-                    </div>
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 class="service-title">Our Team</h3>
-                        <p class="service-desc">Our dedicated team of professionals and volunteers work tirelessly across 15 African countries to deliver aid.</p>
-                        <button class="btn btn-readmore readmore-toggle">Read More</button>
-                        <div class="readmore-content">
-                            <p>Our team comprises experts in international development, public health, education, agriculture, and emergency response. Over 85% of our staff are local hires, ensuring cultural understanding and community trust.</p>
-                            <p>We also work with thousands of volunteers who contribute their time, skills, and passion to further our mission. Their dedication is the backbone of our organization.</p>
-                        </div>
-                    </div>
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="service-title">Our Impact</h3>
-                        <p class="service-desc">Since our founding, we've provided assistance to over 2 million children and their families across Africa.</p>
-                        <button class="btn btn-readmore readmore-toggle">Read More</button>
-                        <div class="readmore-content">
-                            <p>In the past year alone, we've distributed over 15 million meals, built 45 schools, provided clean water to 120 communities, and offered medical care to 75,000 children.</p>
-                            <p>Our programs have helped reduce child mortality rates by up to 40% in the communities we serve, and school enrollment has increased by 60% in areas where we've implemented our education initiatives.</p>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="service-title">Our Impact</h3>
+                            <p class="service-desc">Since our founding, we've provided assistance to over 2 million children and their families across Africa.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>In the past year alone, we've distributed over 15 million meals, built 45 schools, provided clean water to 120 communities, and offered medical care to 75,000 children.</p>
+                                <p>Our programs have helped reduce child mortality rates by up to 40% in the communities we serve, and school enrollment has increased by 60% in areas where we've implemented our education initiatives.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Other sections would follow the same pattern -->
-        
+            <!-- Discover Section -->
+            <section class="section" style="background-color: var(--card-bg);">
+                <div class="container">
+                    <h2 class="section-title text-center">Discover Our Programs</h2>
+                    <div class="services-grid">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h3 class="service-title">Food Security</h3>
+                            <p class="service-desc">Our agricultural programs help communities grow nutritious food and become self-sufficient.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>We implement sustainable farming techniques, provide quality seeds and tools, and train local farmers in modern agricultural practices. Our food security initiatives have helped reduce malnutrition rates by 45% in participating communities.</p>
+                                <p>We also establish community gardens and school feeding programs to ensure children have access to nutritious meals daily.</p>
+                            </div>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="service-title">Education for All</h3>
+                            <p class="service-desc">We build schools, train teachers, and provide scholarships to ensure every child has access to quality education.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>Our education programs focus on building safe learning environments, providing educational materials, and training teachers in modern pedagogical methods. We've constructed over 200 classrooms and provided scholarships to more than 5,000 students.</p>
+                                <p>We also implement digital literacy programs and establish computer labs to prepare children for the digital age.</p>
+                            </div>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h3 class="service-title">Community Development</h3>
+                            <p class="service-desc">We work with local communities to develop sustainable solutions that address their unique challenges.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>Our community development approach involves participatory planning where community members identify their priorities and co-create solutions. We've implemented over 300 community-led projects ranging from clean water access to healthcare facilities.</p>
+                                <p>We also focus on empowering women and youth through skill development programs and microfinance initiatives that create economic opportunities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Who We Help Section -->
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title text-center">Who We Help</h2>
+                    <div class="services-grid">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <h3 class="service-title">Children in Conflict Zones</h3>
+                            <p class="service-desc">We provide emergency aid, psychological support, and education to children affected by war and conflict.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>In conflict-affected areas, we establish safe spaces for children, provide trauma counseling, and ensure access to education even in the most challenging circumstances. Our mobile schools have reached over 50,000 children in conflict zones.</p>
+                                <p>We also work to reunite separated families and provide legal support for children's rights protection.</p>
+                            </div>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-house-user"></i>
+                            </div>
+                            <h3 class="service-title">Rural Communities</h3>
+                            <p class="service-desc">We support remote villages with access to clean water, healthcare, and educational resources.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>Our rural development programs focus on integrated community development. We've drilled over 150 wells, established 80 health clinics, and built 120 schools in remote areas across 12 African countries.</p>
+                                <p>We also implement renewable energy solutions like solar power to bring electricity to off-grid communities, improving quality of life and enabling economic activities after dark.</p>
+                            </div>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <h3 class="service-title">Children with Medical Needs</h3>
+                            <p class="service-desc">We provide medical treatments, surgeries, and ongoing care for children with health challenges.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>Our medical programs provide life-saving treatments for conditions like malaria, malnutrition, and preventable diseases. We've performed over 5,000 surgeries and provided medical care to more than 100,000 children.</p>
+                                <p>We also train local healthcare workers and establish community health programs to ensure sustainable healthcare solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Impact Section -->
+            <section class="section" style="background-color: var(--card-bg);">
+                <div class="container">
+                    <h2 class="section-title text-center">Our Impact</h2>
+                    <div class="services-grid">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3 class="service-title">Nutrition</h3>
+                            <p class="service-desc">Over 1.2 million meals provided to malnourished children in the past year alone.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>Our nutrition programs focus on both emergency feeding and long-term food security. We operate 45 feeding centers across East Africa and have reduced severe acute malnutrition by 60% in the communities we serve.</p>
+                                <p>We also provide nutrition education to parents and caregivers, teaching them how to prepare balanced meals with locally available ingredients.</p>
+                            </div>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="service-title">Education</h3>
+                            <p class="service-desc">75,000+ children now have access to quality education through our school programs.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>Our education initiatives have built 120 schools, trained over 2,000 teachers, and provided scholarships to 15,000 students. School attendance has increased by 70% in communities where we work.</p>
+                                <p>We also focus on girls' education, providing sanitary facilities and menstrual hygiene management to keep girls in school throughout their teenage years.</p>
+                            </div>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h3 class="service-title">Clean Water</h3>
+                            <p class="service-desc">250+ wells built, providing clean water to over 500,000 people in rural communities.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>Our water initiatives include drilling wells, installing rainwater harvesting systems, and building sanitation facilities. The time saved from fetching water has allowed children, especially girls, to attend school regularly.</p>
+                                <p>We also establish water committees in each community to maintain the water points and ensure their sustainability for years to come.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stories Section -->
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title text-center">Success Stories</h2>
+                    <div class="services-grid">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <h3 class="service-title">Amina's Journey</h3>
+                            <p class="service-desc">From unable to read to top of her class - how education changed Amina's life forever.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>Amina was 12 years old and had never attended school when we met her in a remote Kenyan village. Through our scholarship program, she enrolled in school and received extra tutoring. Despite starting later than her peers, Amina's determination saw her excel academically.</p>
+                                <p>Today, Amina is at the top of her class and dreams of becoming a doctor. "Education has given me hope for a better future," she says. "I want to help other children in my village access the opportunities I've been given."</p>
+                            </div>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <h3 class="service-title">Samuel's Recovery</h3>
+                            <p class="service-desc">How life-saving surgery gave Samuel a second chance at a healthy childhood.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>Samuel was born with a congenital heart defect that made even simple activities like walking difficult. His family couldn't afford the surgery he needed. Through our medical program, Samuel received life-saving surgery at a partner hospital.</p>
+                                <p>Today, Samuel is an active 8-year-old who loves playing soccer with his friends. "I can run now without getting tired," he says with a bright smile. His recovery has inspired his community to prioritize children's healthcare.</p>
+                            </div>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-hand-holding-water"></i>
+                            </div>
+                            <h3 class="service-title">Water for Wangechi Village</h3>
+                            <p class="service-desc">How a new well transformed daily life for an entire community in Kenya.</p>
+                            <button class="btn btn-readmore readmore-toggle">Read More</button>
+                            <div class="readmore-content">
+                                <p>For generations, the women of Wangechi village walked 10 kilometers daily to fetch water from a contaminated river. Children often missed school to help with water collection, and waterborne diseases were common.</p>
+                                <p>After we drilled a well in the center of the village, everything changed. Children's school attendance increased by 65%, and waterborne diseases decreased by 80%. The community now grows vegetables using the water, improving nutrition and creating a source of income.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="section cta" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://storage.googleapis.com/a1aa/image/322b938e-858a-4d47-6739-0c9e9763caee.jpg'); background-size: cover; background-position: center;">
+                <div class="container">
+                    <h2 class="section-title text-center" style="color: white;">Contact Us</h2>
+                    <p class="text-center hero-desc" style="color: #ccc; margin-bottom: 50px;">Get in touch with us to learn more, partner with us, or support our mission.</p>
+                    <div class="content-grid">
+                        <div class="content-card">
+                            <div class="content-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3 class="content-title">Visit Us</h3>
+                            <p class="content-desc">123 Charity Avenue, Nairobi, Kenya</p>
+                        </div>
+                        <div class="content-card">
+                            <div class="content-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3 class="content-title">Call Us</h3>
+                            <p class="content-desc">+254 700 123 456<br>+254 711 987 654</p>
+                        </div>
+                        <div class="content-card">
+                            <div class="content-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3 class="content-title">Email Us</h3>
+                            <p class="content-desc">info@kolypso.org<br>donations@kolypso.org</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Login Page -->
+        <div id="login-page" class="page-content">
+            <section class="auth-page">
+                <div class="auth-container">
+                    <div class="auth-tabs">
+                        <div class="auth-tab active" data-tab="login">Login</div>
+                        <div class="auth-tab" data-tab="register">Register</div>
+                    </div>
+                    
+                    <form class="auth-form" id="login-form">
+                        <div class="form-group">
+                            <label class="form-label" for="login-email">Email</label>
+                            <input type="email" class="form-input" id="login-email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="login-password">Password</label>
+                            <input type="password" class="form-input" id="login-password" placeholder="Enter your password">
+                        </div>
+                        <div class="form-options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="remember-me">
+                                <label for="remember-me">Remember me</label>
+                            </div>
+                            <a href="#" class="forgot-password">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="form-submit">Login</button>
+                    </form>
+                    
+                    <form class="auth-form" id="register-form" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label" for="register-name">Full Name</label>
+                            <input type="text" class="form-input" id="register-name" placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="register-email">Email</label>
+                            <input type="email" class="form-input" id="register-email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="register-password">Password</label>
+                            <input type="password" class="form-input" id="register-password" placeholder="Create a password">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="register-confirm">Confirm Password</label>
+                            <input type="password" class="form-input" id="register-confirm" placeholder="Confirm your password">
+                        </div>
+                        <button type="submit" class="form-submit">Register</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <!-- Donate Page -->
+        <div id="donate-page" class="page-content">
+            <section class="page-hero">
+                <div class="container">
+                    <h1 class="hero-title">Make a Difference Today</h1>
+                    <p class="hero-desc">Your donation can transform lives and create lasting change in communities across Africa.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="container">
+                    <h2 class="section-title text-center">Ways to Give</h2>
+                    <div class="donate-options">
+                        <div class="donate-option fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="service-title">One-Time Donation</h3>
+                            <p class="service-desc">Make a single donation to support our ongoing programs and emergency response efforts.</p>
+                            
+                            <div class="donate-amounts">
+                                <button class="amount-btn" data-amount="25">$25</button>
+                                <button class="amount-btn" data-amount="50">$50</button>
+                                <button class="amount-btn" data-amount="100">$100</button>
+                            </div>
+                            
+                            <input type="number" class="custom-amount" placeholder="Enter custom amount">
+                            <button class="btn">Donate Now</button>
+                        </div>
+                        
+                        <div class="donate-option fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h3 class="service-title">Monthly Support</h3>
+                            <p class="service-desc">Become a monthly donor and provide sustained support for our long-term projects.</p>
+                            
+                            <div class="donate-amounts">
+                                <button class="amount-btn" data-amount="15">$15</button>
+                                <button class="amount-btn" data-amount="30">$30</button>
+                                <button class="amount-btn" data-amount="50">$50</button>
+                            </div>
+                            
+                            <input type="number" class="custom-amount" placeholder="Enter custom amount">
+                            <button class="btn">Donate Monthly</button>
+                        </div>
+                        
+                        <div class="donate-option fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h3 class="service-title">Sponsor a Child</h3>
+                            <p class="service-desc">Provide education, healthcare, and nutrition for a child in need through our sponsorship program.</p>
+                            
+                            <div class="donate-amounts">
+                                <button class="amount-btn" data-amount="35">$35/mo</button>
+                                <button class="amount-btn active" data-amount="50">$50/mo</button>
+                                <button class="amount-btn" data-amount="75">$75/mo</button>
+                            </div>
+                            
+                            <p class="service-desc" style="font-size: 0.9rem; margin-top: 20px;">Your sponsorship provides a child with education, healthcare, nutrition, and family support.</p>
+                            <button class="btn">Sponsor a Child</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" style="background-color: var(--card-bg);">
+                <div class="container">
+                    <h2 class="section-title text-center">How Your Donation Helps</h2>
+                    <div class="services-grid">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3 class="service-title">$25 Provides</h3>
+                            <p class="service-desc">Nutritious meals for 10 children for a week</p>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3 class="service-title">$50 Provides</h3>
+                            <p class="service-desc">School supplies for 5 children for a year</p>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h3 class="service-title">$100 Provides</h3>
+                            <p class="service-desc">Clean water for a family for 6 months</p>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <h3 class="service-title">$250 Provides</h3>
+                            <p class="service-desc">Medical care for 10 children</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer id="footer">
+    <footer>
         <div class="footer-overlay"></div>
         <div class="container footer-content">
             <div class="footer-grid">
@@ -1266,12 +1318,13 @@
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#discover">Our Work</a></li>
-                        <li><a href="#impact">Impact</a></li>
-                        <li><a href="#stories">Success Stories</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="login.html">Login</a></li>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="about">About Us</a></li>
+                        <li><a href="#" data-page="discover">Our Work</a></li>
+                        <li><a href="#" data-page="impact">Impact</a></li>
+                        <li><a href="#" data-page="stories">Success Stories</a></li>
+                        <li><a href="#" data-page="contact">Contact Us</a></li>
+                        <li><a href="#" data-page="login">Login</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -1315,16 +1368,30 @@
         const navMenu = document.getElementById('nav-menu');
         const header = document.getElementById('header');
         const readmoreToggles = document.querySelectorAll('.readmore-toggle');
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const amountBtns = document.querySelectorAll('.amount-btn');
+        const pageLinks = document.querySelectorAll('[data-page]');
+        const pageContents = document.querySelectorAll('.page-content');
         
         // Theme Toggle
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             if (document.body.classList.contains('dark-mode')) {
                 themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
             } else {
                 themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
             }
         });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
         
         // Mobile Menu Toggle
         mobileMenuToggle.addEventListener('click', () => {
@@ -1336,9 +1403,11 @@
         // Header scroll effect
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                header.classList.add('scrolled');
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                header.style.backdropFilter = 'blur(5px)';
             } else {
-                header.classList.remove('scrolled');
+                header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+                header.style.backdropFilter = 'blur(10px)';
             }
         });
         
@@ -1349,6 +1418,67 @@
                 content.classList.toggle('active');
                 toggle.textContent = content.classList.contains('active') ? 'Read Less' : 'Read More';
             });
+        });
+        
+        // Auth Tab Toggle
+        authTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                authTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                if (tab.getAttribute('data-tab') === 'login') {
+                    loginForm.style.display = 'block';
+                    registerForm.style.display = 'none';
+                } else {
+                    loginForm.style.display = 'none';
+                    registerForm.style.display = 'block';
+                }
+            });
+        });
+        
+        // Amount Button Selection
+        amountBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                amountBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+        
+        // Page Navigation
+        pageLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = link.getAttribute('data-page');
+                
+                // Hide all pages
+                pageContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show selected page
+                document.getElementById(`${page}-page`).classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+                
+                // Close mobile menu if open
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Form submissions
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Login functionality would be implemented with a backend system.');
+        });
+        
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Registration functionality would be implemented with a backend system.');
         });
         
         // Fade-in animation on scroll
@@ -1368,15 +1498,6 @@
         
         window.addEventListener('scroll', fadeInOnScroll);
         window.addEventListener('load', fadeInOnScroll);
-        
-        // Donate buttons
-        const donateButtons = document.querySelectorAll('#donate-btn, #hero-donate-btn');
-        donateButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert('Thank you for your willingness to donate! Our donation portal is currently being upgraded. Please check back soon.');
-            });
-        });
         
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
