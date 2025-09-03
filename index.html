@@ -306,548 +306,6 @@
             color: var(--gray);
         }
 
-        /* Gallery Section */
-        .gallery {
-            background-color: #f9f9f9;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: var(--radius);
-            overflow: hidden;
-            height: 250px;
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover .gallery-img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            padding: 20px;
-            color: white;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        /* Impact Section */
-        .impact-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .impact-text {
-            flex: 1;
-        }
-
-        .impact-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .stat-desc {
-            color: var(--gray);
-        }
-
-        .impact-image {
-            flex: 1;
-        }
-
-        .impact-img {
-            width: 100%;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        /* Stories Section */
-        .stories {
-            background-color: #f9f9f9;
-        }
-
-        .stories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .story-card {
-            background-color: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .story-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .story-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .story-content {
-            padding: 20px;
-        }
-
-        .story-title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .story-desc {
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
-        /* Map Section */
-        .map-section {
-            background-color: white;
-        }
-
-        #impact-map {
-            height: 400px;
-            border-radius: var(--radius);
-            margin-top: 40px;
-            box-shadow: var(--shadow);
-        }
-
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://storage.googleapis.com/a1aa/image/322b938e-858a-4d47-6739-0c9e9763caee.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-title {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .cta-desc {
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .cta-circle {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.3;
-        }
-
-        .circle-1 {
-            width: 200px;
-            height: 200px;
-            background-color: var(--secondary);
-            top: -100px;
-            left: -100px;
-        }
-
-        .circle-2 {
-            width: 150px;
-            height: 150px;
-            background-color: var(--primary);
-            bottom: -75px;
-            right: -75px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-logo img {
-            width: 40px;
-            height: 40px;
-        }
-
-        .footer-logo-text {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .footer-desc {
-            color: #ccc;
-        }
-
-        .footer-links h3, .footer-contact h3, .footer-newsletter h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .footer-links h3:after, .footer-contact h3:after, .footer-newsletter h3:after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 3px;
-            background-color: var(--secondary);
-            margin-top: 10px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            padding-left: 5px;
-        }
-
-        .contact-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-
-        .contact-icon {
-            color: var(--secondary);
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: var(--radius);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #333;
-            color: white;
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background-color: var(--secondary);
-            color: var(--dark);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #444;
-            padding-top: 20px;
-            text-align: center;
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: var(--radius);
-            max-width: 500px;
-            width: 100%;
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray);
-        }
-
-        .donation-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .donation-option {
-            padding: 15px;
-            border: 2px solid #eee;
-            border-radius: var(--radius);
-            text-align: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .donation-option:hover, .donation-option.selected {
-            border-color: var(--primary);
-            background-color: rgba(46, 139, 87, 0.1);
-        }
-
-        .custom-donation {
-            margin: 20px 0;
-        }
-
-        .donation-input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #eee;
-            border-radius: var(--radius);
-            margin-bottom: 15px;
-        }
-
-        /* Login/Register Form Styles */
-        .auth-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(46,139,87,0.1) 100%);
-            padding: 100px 0 50px;
-        }
-
-        .auth-form {
-            background: white;
-            padding: 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            width: 100%;
-            max-width: 450px;
-        }
-
-        .auth-tabs {
-            display: flex;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #eee;
-        }
-
-        .auth-tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: var(--transition);
-            border-bottom: 3px solid transparent;
-        }
-
-        .auth-tab.active {
-            color: var(--primary);
-            border-bottom: 3px solid var(--primary);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #eee;
-            border-radius: var(--radius);
-            transition: var(--transition);
-        }
-
-        .form-input:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
-
-        .form-options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .remember-me {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .forgot-password {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: var(--radius);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .form-submit:hover {
-            background-color: #267349;
-        }
-
-        .social-auth {
-            margin-top: 25px;
-            text-align: center;
-        }
-
-        .social-auth p {
-            margin-bottom: 15px;
-            position: relative;
-            color: var(--gray);
-        }
-
-        .social-auth p:before,
-        .social-auth p:after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 40%;
-            height: 1px;
-            background-color: #eee;
-        }
-
-        .social-auth p:before {
-            left: 0;
-        }
-
-        .social-auth p:after {
-            right: 0;
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: #f5f5f5;
-            color: var(--dark);
-            transition: var(--transition);
-        }
-
-        .social-btn:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
         /* Dashboard Styles */
         .dashboard-container {
             display: flex;
@@ -1136,9 +594,351 @@
             color: var(--gray);
         }
 
+        /* Login/Register Form Styles */
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(46,139,87,0.1) 100%);
+            padding: 100px 0 50px;
+        }
+
+        .auth-form {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .auth-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .auth-tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .forgot-password {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-submit:hover {
+            background-color: #267349;
+        }
+
+        .social-auth {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .social-auth p {
+            margin-bottom: 15px;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .social-auth p:before,
+        .social-auth p:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: #eee;
+        }
+
+        .social-auth p:before {
+            left: 0;
+        }
+
+        .social-auth p:after {
+            right: 0;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Page Specific Styles */
+        .page-hero {
+            padding-top: 150px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, rgba(255,215,0,0.2) 0%, rgba(46,139,87,0.2) 100%);
+            text-align: center;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .back-home:hover {
+            color: var(--accent);
+            transform: translateX(-5px);
+        }
+
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .content-card {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .content-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .content-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .footer-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .footer-desc {
+            color: #ccc;
+        }
+
+        .footer-links h3, .footer-contact h3, .footer-newsletter h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-links h3:after, .footer-contact h3:after, .footer-newsletter h3:after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin-top: 10px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        .contact-icon {
+            color: var(--secondary);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: var(--radius);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
         /* Responsive Styles */
         @media (max-width: 992px) {
-            .hero-content, .impact-content {
+            .hero-content {
                 flex-direction: column;
             }
             
@@ -1199,7 +999,7 @@
                 display: block;
             }
 
-            .hero-buttons, .cta-buttons {
+            .hero-buttons {
                 flex-direction: column;
                 gap: 15px;
             }
@@ -1228,6 +1028,7 @@
             </button>
             
             <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
                 <li class="nav-item"><a href="discover.html" class="nav-link">Discover</a></li>
                 <li class="nav-item"><a href="help.html" class="nav-link">Who We Help</a></li>
@@ -1240,188 +1041,68 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">A world where no <span class="highlight">child's life</span> is torn apart by war.</h1>
-                <p class="hero-desc">Every five seconds, one child dies in Africa due to malnutrition, war, and preventable diseases. Kolypso can help.</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn" id="hero-donate-btn">Donate Now</a>
-                    <a href="discover.html" class="btn btn-secondary">Discover More</a>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home Page Content -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">A world where no <span class="highlight">child's life</span> is torn apart by war.</h1>
+                    <p class="hero-desc">Every five seconds, one child dies in Africa due to malnutrition, war, and preventable diseases. Kolypso can help.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn" id="hero-donate-btn">Donate Now</a>
+                        <a href="discover.html" class="btn btn-secondary">Discover More</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://storage.googleapis.com/a1aa/image/9185540f-9b87-4e83-3ac6-b8eabff85999.jpg" alt="African child portrait" class="hero-img">
+                    <div class="stat-badge">
+                        <div class="stat-number">288</div>
+                        <div class="stat-desc">children die every minute in Africa</div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="https://storage.googleapis.com/a1aa/image/9185540f-9b87-4e83-3ac6-b8eabff85999.jpg" alt="African child portrait" class="hero-img">
-                <div class="stat-badge">
-                    <div class="stat-number">288</div>
-                    <div class="stat-desc">children die every minute in Africa</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section class="section services">
-        <div class="container">
-            <h2 class="section-title text-center">How We Help</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-apple-alt"></i>
+        <!-- Services Section -->
+        <section class="section services">
+            <div class="container">
+                <h2 class="section-title text-center">How We Help</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <h3 class="service-title">Healthy Food</h3>
+                        <p class="service-desc">We provide nutritious meals to children suffering from malnutrition.</p>
                     </div>
-                    <h3 class="service-title">Healthy Food</h3>
-                    <p class="service-desc">We provide nutritious meals to children suffering from malnutrition.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-book"></i>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3 class="service-title">Education</h3>
+                        <p class="service-desc">Educational support and school supplies for children in need.</p>
                     </div>
-                    <h3 class="service-title">Education</h3>
-                    <p class="service-desc">Educational support and school supplies for children in need.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tint"></i>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="service-title">Pure Water</h3>
+                        <p class="service-desc">Clean water access to prevent waterborne diseases.</p>
                     </div>
-                    <h3 class="service-title">Pure Water</h3>
-                    <p class="service-desc">Clean water access to prevent waterborne diseases.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-medkit"></i>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-medkit"></i>
+                        </div>
+                        <h3 class="service-title">Medical Care</h3>
+                        <p class="service-desc">Medical aid and vaccinations to save lives.</p>
                     </div>
-                    <h3 class="service-title">Medical Care</h3>
-                    <p class="service-desc">Medical aid and vaccinations to save lives.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gallery Section -->
-    <section class="section gallery">
-        <div class="container">
-            <h2 class="section-title text-center">Making a Difference</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://storage.googleapis.com/a1aa/image/6f2d48d2-4471-4785-9dfe-b70db3de1868.jpg" alt="Child in classroom" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Education Support</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://storage.googleapis.com/a1aa/image/9934b930-09b6-460d-860f-8fc5a4bf576c.jpg" alt="Smiling children" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Happy Communities</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://storage.googleapis.com/a1aa/image/2b76de2f-3b92-4732-7de9-2b6804020b97.jpg" alt="Children playing" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Safe Play Areas</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://storage.googleapis.com/a1aa/image/32290812-a42b-4f10-b46d-37f410a864be.jpg" alt="Child studying" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Learning Opportunities</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://storage.googleapis.com/a1aa/image/dfc6bfab-26a9-452c-c8d7-dfba61da7dc1.jpg" alt="Child drinking water" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3>Clean Water Access</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact Section -->
-    <section class="section impact">
-        <div class="container impact-content">
-            <div class="impact-text">
-                <h2 class="section-title">What have we done with <span class="highlight">your help?</span></h2>
-                <p>We support over 288 million children, who suffer from malnutrition, disease, and war. Kolypso has helped provide food, education, clean water, and medical aid to thousands of children across Africa. Your donations have made a real difference in their lives.</p>
-                <div class="impact-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">1.2M+</div>
-                        <div class="stat-desc">Meals Provided</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">75K+</div>
-                        <div class="stat-desc">Children Educated</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">250+</div>
-                        <div class="stat-desc">Wells Built</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">500K+</div>
-                        <div class="stat-desc">Vaccinations</div>
-                    </div>
-                </div>
-            </div>
-            <div class="impact-image">
-                <img src="https://storage.googleapis.com/a1aa/image/322b938e-858a-4d47-6739-0c9e9763caee.jpg" alt="Children in Africa" class="impact-img">
-            </div>
-        </div>
-    </section>
-
-    <!-- Stories Section -->
-    <section class="section stories">
-        <div class="container">
-            <h2 class="section-title text-center">Success Stories</h2>
-            <div class="stories-grid">
-                <div class="story-card">
-                    <img src="https://storage.googleapis.com/a1aa/image/6f2d48d2-4471-4785-9dfe-b70db3de1868.jpg" alt="Success story" class="story-img">
-                    <div class="story-content">
-                        <h3 class="story-title">Amina's Journey to Education</h3>
-                        <p class="story-desc">Amina was unable to attend school due to poverty. With your help, she now receives education and dreams of becoming a doctor.</p>
-                        <a href="#" class="btn btn-accent">Read More</a>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <img src="https://storage.googleapis.com/a1aa/image/9934b930-09b6-460d-860f-8fc5a4bf576c.jpg" alt="Success story" class="story-img">
-                    <div class="story-content">
-                        <h3 class="story-title">Clean Water for Kibera</h3>
-                        <p class="story-desc">The Kibera slum now has access to clean water, reducing waterborne diseases by 75% in the community.</p>
-                        <a href="#" class="btn btn-accent">Read More</a>
-                    </div>
-                </div>
-                <div class="story-card">
-                    <img src="https://storage.googleapis.com/a1aa/image/2b76de2f-3b92-4732-7de9-2b6804020b97.jpg" alt="Success story" class="story-img">
-                    <div class="story-content">
-                        <h3 class="story-title">From Malnutrition to Health</h3>
-                        <p class="story-desc">Samuel was severely malnourished. With nutritional support, he's now a healthy, thriving child.</p>
-                        <a href="#" class="btn btn-accent">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <section class="section map-section">
-        <div class="container">
-            <h2 class="section-title text-center">Our Impact Across Africa</h2>
-            <div id="impact-map"></div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="section cta">
-        <div class="container">
-            <h2 class="cta-title">Join us in the fight to save children's lives</h2>
-            <p class="cta-desc">Your donation can provide food, clean water, education, and medical care to children in desperate need across Africa.</p>
-            <div class="cta-buttons">
-                <a href="#" class="btn" id="cta-donate-btn">Donate Now</a>
-                <a href="contact.html" class="btn btn-secondary">Contact Us</a>
-            </div>
-        </div>
-        <div class="cta-circle circle-1"></div>
-        <div class="cta-circle circle-2"></div>
-    </section>
+        <!-- Other sections would be here -->
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -1481,42 +1162,7 @@
         </div>
     </footer>
 
-    <!-- Donation Modal -->
-    <div class="modal" id="donation-modal">
-        <div class="modal-content">
-            <span class="close-modal" id="close-donation-modal">&times;</span>
-            <h2 class="section-title">Make a Donation</h2>
-            <p>Your donation will help provide essential resources to children in need across Africa.</p>
-            
-            <div class="donation-options">
-                <div class="donation-option" data-amount="25">
-                    <h3>$25</h3>
-                    <p>Provides meals for a child for a month</p>
-                </div>
-                <div class="donation-option" data-amount="50">
-                    <h3>$50</h3>
-                    <p>School supplies for 5 children</p>
-                </div>
-                <div class="donation-option" data-amount="100">
-                    <h3>$100</h3>
-                    <p>Clean water for a family for 6 months</p>
-                </div>
-                <div class="donation-option" data-amount="250">
-                    <h3>$250</h3>
-                    <p>Medical care for 10 children</p>
-                </div>
-            </div>
-            
-            <div class="custom-donation">
-                <h3>Or enter custom amount</h3>
-                <input type="number" class="donation-input" placeholder="Enter amount in USD" id="custom-amount">
-            </div>
-            
-            <button class="btn" id="proceed-donation">Proceed to Donate</button>
-        </div>
-    </div>
-
-    <!-- Login/Register Modal -->
+    <!-- Login Modal -->
     <div class="modal" id="auth-modal">
         <div class="modal-content">
             <span class="close-modal" id="close-auth-modal">&times;</span>
@@ -1584,172 +1230,669 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
-            document.getElementById('nav-menu').classList.toggle('active');
-        });
-
-        // Donation modal functionality
-        const donationButtons = ['donate-btn', 'hero-donate-btn', 'cta-donate-btn'];
-        const donationModal = document.getElementById('donation-modal');
-        const closeDonationModal = document.getElementById('close-donation-modal');
-        
-        donationButtons.forEach(btnId => {
-            document.getElementById(btnId).addEventListener('click', function(e) {
-                e.preventDefault();
-                donationModal.style.display = 'flex';
-            });
-        });
-        
-        closeDonationModal.addEventListener('click', function() {
-            donationModal.style.display = 'none';
-        });
-        
-        // Donation option selection
-        const donationOptions = document.querySelectorAll('.donation-option');
-        donationOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                donationOptions.forEach(opt => opt.classList.remove('selected'));
-                this.classList.add('selected');
-                document.getElementById('custom-amount').value = this.getAttribute('data-amount');
-            });
-        });
-        
-        // Proceed to donate button
-        document.getElementById('proceed-donation').addEventListener('click', function() {
-            const amount = document.getElementById('custom-amount').value;
-            if (amount) {
-                alert(`Thank you for your donation of $${amount}! You will be redirected to the payment page.`);
-                donationModal.style.display = 'none';
-            } else {
-                alert('Please select or enter a donation amount.');
-            }
-        });
-
-        // Auth modal functionality
-        const authModal = document.getElementById('auth-modal');
-        const closeAuthModal = document.getElementById('close-auth-modal');
-        const authTabs = document.querySelectorAll('.auth-tab');
-        const loginForm = document.getElementById('login-form');
-        const registerForm = document.getElementById('register-form');
-        
-        document.querySelectorAll('.nav-link').forEach(link => {
-            if (link.textContent === 'Login') {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    authModal.style.display = 'flex';
-                });
-            }
-        });
-        
-        closeAuthModal.addEventListener('click', function() {
-            authModal.style.display = 'none';
-        });
-        
-        // Auth tab switching
-        authTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                authTabs.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                if (this.getAttribute('data-tab') === 'login') {
-                    loginForm.style.display = 'block';
-                    registerForm.style.display = 'none';
-                } else {
-                    loginForm.style.display = 'none';
-                    registerForm.style.display = 'block';
-                }
-            });
-        });
-        
-        // Form submissions
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            
-            // Simple validation
-            if (email && password) {
-                alert('Login successful! Redirecting to your dashboard...');
-                authModal.style.display = 'none';
-                // In a real application, you would redirect to the dashboard
-                window.location.href = 'dashboard.html';
-            } else {
-                alert('Please fill in all fields.');
-            }
-        });
-        
-        registerForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('register-name').value;
-            const email = document.getElementById('register-email').value;
-            const password = document.getElementById('register-password').value;
-            const confirm = document.getElementById('register-confirm').value;
-            
-            // Simple validation
-            if (!name || !email || !password || !confirm) {
-                alert('Please fill in all fields.');
-                return;
-            }
-            
-            if (password !== confirm) {
-                alert('Passwords do not match.');
-                return;
-            }
-            
-            alert('Registration successful! You can now login.');
-            authTabs[0].click(); // Switch to login tab
-        });
-
-        // Initialize map
-        function initMap() {
-            const map = L.map('impact-map').setView([2.0, 20.0], 3);
-            
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-            
-            // Add markers for impact areas
-            const markers = [
-                { lat: 9.0820, lng: 8.6753, title: 'Nigeria', desc: 'Education programs for 50,000 children' },
-                { lat: -1.2921, lng: 36.8219, title: 'Kenya', desc: 'Clean water projects serving 100,000 people' },
-                { lat: 9.1450, lng: 40.4897, title: 'Ethiopia', desc: 'Nutrition programs reducing malnutrition by 40%' },
-                { lat: -6.3690, lng: 34.8888, title: 'Tanzania', desc: 'Medical clinics serving remote communities' },
-                { lat: 1.3733, lng: 32.2903, title: 'Uganda', desc: 'School construction and teacher training' }
-            ];
-            
-            markers.forEach(marker => {
-                L.marker([marker.lat, marker.lng])
-                    .addTo(map)
-                    .bindPopup(`<strong>${marker.title}</strong><br>${marker.desc}`);
-            });
-        }
-        
-        // Initialize map when page loads
-        window.onload = function() {
-            initMap();
+        // Page Management
+        const pages = {
+            'index.html': document.getElementById('main-content').innerHTML,
+            'about.html': `
+                <section class="page-hero">
+                    <div class="container">
+                        <h1 class="hero-title">About Kolypso Charity</h1>
+                        <p class="hero-desc">Learn about our mission, vision, and the dedicated team working to make a difference in Africa.</p>
+                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                    </div>
+                </section>
+                <section class="content-section">
+                    <div class="container">
+                        <h2 class="section-title text-center">Our Story</h2>
+                        <div class="content-grid">
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-flag"></i>
+                                </div>
+                                <h3 class="content-title">Our Mission</h3>
+                                <p class="content-desc">Kolypso Charity was founded in 2010 with a mission to provide life-saving support to children across Africa who are affected by poverty, malnutrition, and conflict.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3 class="content-title">Our Vision</h3>
+                                <p class="content-desc">We envision an Africa where every child has access to nutritious food, clean water, quality education, and healthcare, regardless of their circumstances.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3 class="content-title">Our Team</h3>
+                                <p class="content-desc">Our dedicated team of professionals and volunteers work tirelessly across 15 African countries to deliver aid and support to those who need it most.</p>
+                                <a href="#" class="btn">Meet the Team</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+            'discover.html': `
+                <section class="page-hero">
+                    <div class="container">
+                        <h1 class="hero-title">Discover Our Programs</h1>
+                        <p class="hero-desc">Explore the various initiatives and programs we've developed to help children across Africa.</p>
+                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                    </div>
+                </section>
+                <section class="content-section">
+                    <div class="container">
+                        <h2 class="section-title text-center">Our Initiatives</h2>
+                        <div class="content-grid">
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <h3 class="content-title">Food Security</h3>
+                                <p class="content-desc">Our agricultural programs help communities grow nutritious food and become self-sufficient, reducing reliance on external aid.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3 class="content-title">Education for All</h3>
+                                <p class="content-desc">We build schools, train teachers, and provide scholarships to ensure every child has access to quality education.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <h3 class="content-title">Community Development</h3>
+                                <p class="content-desc">We work with local communities to develop sustainable solutions that address their unique challenges and needs.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+            'help.html': `
+                <section class="page-hero">
+                    <div class="container">
+                        <h1 class="hero-title">Who We Help</h1>
+                        <p class="hero-desc">Learn about the communities and children we support across Africa.</p>
+                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                    </div>
+                </section>
+                <section class="content-section">
+                    <div class="container">
+                        <h2 class="section-title text-center">Our Beneficiaries</h2>
+                        <div class="content-grid">
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-child"></i>
+                                </div>
+                                <h3 class="content-title">Children in Conflict Zones</h3>
+                                <p class="content-desc">We provide emergency aid, psychological support, and education to children affected by war and conflict.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-house-user"></i>
+                                </div>
+                                <h3 class="content-title">Rural Communities</h3>
+                                <p class="content-desc">We support remote villages with access to clean water, healthcare, and educational resources.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-hospital"></i>
+                                </div>
+                                <h3 class="content-title">Children with Medical Needs</h3>
+                                <p class="content-desc">We provide medical treatments, surgeries, and ongoing care for children with health challenges.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+            'impact.html': `
+                <section class="page-hero">
+                    <div class="container">
+                        <h1 class="hero-title">Our Impact</h1>
+                        <p class="hero-desc">See the measurable difference we've made in the lives of children across Africa.</p>
+                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                    </div>
+                </section>
+                <section class="content-section">
+                    <div class="container">
+                        <h2 class="section-title text-center">By The Numbers</h2>
+                        <div class="content-grid">
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <h3 class="content-title">Nutrition</h3>
+                                <p class="content-desc">Over 1.2 million meals provided to malnourished children in the past year alone.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3 class="content-title">Education</h3>
+                                <p class="content-desc">75,000+ children now have access to quality education through our school programs.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <h3 class="content-title">Clean Water</h3>
+                                <p class="content-desc">250+ wells built, providing clean water to over 500,000 people in rural communities.</p>
+                                <a href="#" class="btn">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+            'stories.html': `
+                <section class="page-hero">
+                    <div class="container">
+                        <h1 class="hero-title">Success Stories</h1>
+                        <p class="hero-desc">Read inspiring stories of transformation from the children and communities we've helped.</p>
+                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                    </div>
+                </section>
+                <section class="content-section">
+                    <div class="container">
+                        <h2 class="section-title text-center">Stories of Hope</h2>
+                        <div class="content-grid">
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <h3 class="content-title">Amina's Journey</h3>
+                                <p class="content-desc">From unable to read to top of her class - how education changed Amina's life forever.</p>
+                                <a href="#" class="btn">Read Story</a>
+                            </div>
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                                <h3 class="content-title">Samuel's Recovery</h3>
+                                <p class="content-desc">How life-saving surgery gave Samuel a second chance at a healthy childhood.</p>
+                                <a href="#" class="btn">Read Story</a>
+                            </div>
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-hand-holding-water"></i>
+                                </div>
+                                <h3 class="content-title">Water for Wangechi Village</h3>
+                                <p class="content-desc">How a new well transformed daily life for an entire community in Kenya.</p>
+                                <a href="#" class="btn">Read Story</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+            'contact.html': `
+                <section class="page-hero">
+                    <div class="container">
+                        <h1 class="hero-title">Contact Us</h1>
+                        <p class="hero-desc">Get in touch with us to learn more, partner with us, or support our mission.</p>
+                        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                    </div>
+                </section>
+                <section class="content-section">
+                    <div class="container">
+                        <h2 class="section-title text-center">Get In Touch</h2>
+                        <div class="content-grid">
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h3 class="content-title">Visit Us</h3>
+                                <p class="content-desc">123 Charity Avenue, Nairobi, Kenya</p>
+                                <a href="#" class="btn">Get Directions</a>
+                            </div>
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <h3 class="content-title">Call Us</h3>
+                                <p class="content-desc">+254 700 123 456<br>+254 711 987 654</p>
+                                <a href="#" class="btn">Call Now</a>
+                            </div>
+                            <div class="content-card">
+                                <div class="content-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h3 class="content-title">Email Us</h3>
+                                <p class="content-desc">info@kolypso.org<br>donations@kolypso.org</p>
+                                <a href="#" class="btn">Send Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `,
+            'login.html': `
+                <section class="auth-container">
+                    <div class="auth-form">
+                        <div class="auth-tabs">
+                            <div class="auth-tab active" data-tab="login">Login</div>
+                            <div class="auth-tab" data-tab="register">Register</div>
+                        </div>
+                        
+                        <form class="auth-form" id="login-form">
+                            <div class="form-group">
+                                <label class="form-label" for="login-email">Email</label>
+                                <input type="email" class="form-input" id="login-email" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="login-password">Password</label>
+                                <input type="password" class="form-input" id="login-password" placeholder="Enter your password">
+                            </div>
+                            <div class="form-options">
+                                <div class="remember-me">
+                                    <input type="checkbox" id="remember-me">
+                                    <label for="remember-me">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password">Forgot password?</a>
+                            </div>
+                            <button type="submit" class="form-submit">Login</button>
+                            
+                            <div class="social-auth">
+                                <p>Or login with</p>
+                                <div class="social-buttons">
+                                    <a href="#" class="social-btn"><i class="fab fa-google"></i></a>
+                                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <form class="auth-form" id="register-form" style="display: none;">
+                            <div class="form-group">
+                                <label class="form-label" for="register-name">Full Name</label>
+                                <input type="text" class="form-input" id="register-name" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="register-email">Email</label>
+                                <input type="email" class="form-input" id="register-email" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="register-password">Password</label>
+                                <input type="password" class="form-input" id="register-password" placeholder="Create a password">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="register-confirm">Confirm Password</label>
+                                <input type="password" class="form-input" id="register-confirm" placeholder="Confirm your password">
+                            </div>
+                            <button type="submit" class="form-submit">Register</button>
+                            
+                            <div class="social-auth">
+                                <p>Or register with</p>
+                                <div class="social-buttons">
+                                    <a href="#" class="social-btn"><i class="fab fa-google"></i></a>
+                                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="text-center" style="margin-top: 20px;">
+                            <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                        </div>
+                    </div>
+                </section>
+            `,
+            'dashboard.html': `
+                <div class="dashboard-container">
+                    <div class="dashboard-sidebar" id="dashboard-sidebar">
+                        <div class="sidebar-header">
+                            <div class="user-info">
+                                <img src="https://ui-avatars.com/api/?name=User+Name&background=2E8B57&color=fff" alt="User Avatar" class="user-avatar">
+                                <div>
+                                    <div class="user-name" id="dashboard-user-name">User Name</div>
+                                    <div class="user-role">Supporter</div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="sidebar-menu">
+                            <li class="menu-item">
+                                <a href="#" class="menu-link active" data-section="overview">
+                                    <span class="menu-icon"><i class="fas fa-chart-pie"></i></span>
+                                    <span>Overview</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link" data-section="donations">
+                                    <span class="menu-icon"><i class="fas fa-donate"></i></span>
+                                    <span>My Donations</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link" data-section="profile">
+                                    <span class="menu-icon"><i class="fas fa-user"></i></span>
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link" data-section="impact">
+                                    <span class="menu-icon"><i class="fas fa-hand-holding-heart"></i></span>
+                                    <span>My Impact</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#" class="menu-link" id="logout-btn">
+                                    <span class="menu-icon"><i class="fas fa-sign-out-alt"></i></span>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dashboard-main" id="dashboard-main">
+                        <div class="dashboard-header">
+                            <h1 class="page-title">Dashboard Overview</h1>
+                            <button class="toggle-sidebar" id="toggle-sidebar">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon icon-primary">
+                                    <i class="fas fa-donate"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-title">Total Donated</div>
+                                    <div class="stat-value" id="total-donated">$0.00</div>
+                                    <div class="stat-change change-up">
+                                        <i class="fas fa-arrow-up"></i> <span>12% this year</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon icon-secondary">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-title">Monthly Giving</div>
+                                    <div class="stat-value" id="monthly-giving">$0.00</div>
+                                    <div class="stat-change change-up">
+                                        <i class="fas fa-arrow-up"></i> <span>Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon icon-accent">
+                                    <i class="fas fa-children"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-title">Children Helped</div>
+                                    <div class="stat-value" id="children-helped">0</div>
+                                    <div class="stat-change change-up">
+                                        <i class="fas fa-arrow-up"></i> <span>25% this year</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon icon-dark">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-title">Member Since</div>
+                                    <div class="stat-value" id="member-since">2023</div>
+                                    <div class="stat-change change-up">
+                                        <i class="fas fa-heart"></i> <span>Loyal supporter</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="charts-row">
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <h2 class="chart-title">Donation History</h2>
+                                    <div class="chart-actions">
+                                        <button class="chart-action"><i class="fas fa-download"></i></button>
+                                        <button class="chart-action"><i class="fas fa-expand"></i></button>
+                                    </div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="donationChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <h2 class="chart-title">Impact Distribution</h2>
+                                    <div class="chart-actions">
+                                        <button class="chart-action"><i class="fas fa-download"></i></button>
+                                    </div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="impactChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-activities">
+                            <h2 class="chart-title">Recent Activities</h2>
+                            <ul class="activity-list" id="activity-list">
+                                <li class="activity-item">
+                                    <div class="activity-icon icon-primary">
+                                        <i class="fas fa-donate"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h3 class="activity-title">Monthly Donation Processed</h3>
+                                        <p class="activity-desc">Your monthly donation of $25.00 was successfully processed.</p>
+                                        <div class="activity-time">2 hours ago</div>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon icon-accent">
+                                        <i class="fas fa-envelope-open-text"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h3 class="activity-title">Impact Report Available</h3>
+                                        <p class="activity-desc">Your personalized impact report for Q2 2023 is now available.</p>
+                                        <div class="activity-time">3 days ago</div>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon icon-secondary">
+                                        <i class="fas fa-user-edit"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <h3 class="activity-title">Profile Updated</h3>
+                                        <p class="activity-desc">You updated your account information.</p>
+                                        <div class="activity-time">1 week ago</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `
         };
 
-        // Close modals when clicking outside
-        window.addEventListener('click', function(e) {
-            if (e.target === donationModal) {
-                donationModal.style.display = 'none';
+        // Initialize the page
+        function initPage() {
+            const path = window.location.pathname.split('/').pop() || 'index.html';
+            const mainContent = document.getElementById('main-content');
+            
+            if (pages[path]) {
+                mainContent.innerHTML = pages[path];
+                
+                // If it's the dashboard, initialize dashboard functionality
+                if (path === 'dashboard.html') {
+                    initDashboard();
+                }
+                
+                // If it's login page, initialize auth functionality
+                if (path === 'login.html') {
+                    initAuth();
+                }
             }
-            if (e.target === authModal) {
-                authModal.style.display = 'none';
+            
+            // Update active navigation link
+            updateActiveNavLink(path);
+        }
+
+        // Update active navigation link
+        function updateActiveNavLink(path) {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === path) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize authentication functionality
+        function initAuth() {
+            const authTabs = document.querySelectorAll('.auth-tab');
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            
+            // Switch between login and register tabs
+            authTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    authTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    if (this.getAttribute('data-tab') === 'login') {
+                        loginForm.style.display = 'block';
+                        registerForm.style.display = 'none';
+                    } else {
+                        loginForm.style.display = 'none';
+                        registerForm.style.display = 'block';
+                    }
+                });
+            });
+            
+            // Handle login form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                
+                if (email && password) {
+                    // Save user to localStorage
+                    const user = {
+                        email: email,
+                        name: email.split('@')[0], // Simple name from email
+                        joinDate: new Date().toISOString().split('T')[0]
+                    };
+                    
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    
+                    // Redirect to dashboard
+                    window.location.href = 'dashboard.html';
+                } else {
+                    alert('Please enter both email and password.');
+                }
+            });
+            
+            // Handle register form submission
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('register-name').value;
+                const email = document.getElementById('register-email').value;
+                const password = document.getElementById('register-password').value;
+                const confirm = document.getElementById('register-confirm').value;
+                
+                if (!name || !email || !password || !confirm) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+                
+                if (password !== confirm) {
+                    alert('Passwords do not match.');
+                    return;
+                }
+                
+                // Save user to localStorage
+                const user = {
+                    email: email,
+                    name: name,
+                    joinDate: new Date().toISOString().split('T')[0]
+                };
+                
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                
+                // Redirect to dashboard
+                window.location.href = 'dashboard.html';
+            });
+        }
+
+        // Initialize dashboard functionality
+        function initDashboard() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (!currentUser) {
+                window.location.href = 'login.html';
+                return;
             }
+            
+            // Update user info
+            document.getElementById('dashboard-user-name').textContent = currentUser.name;
+            document.getElementById('member-since').textContent = currentUser.joinDate.split('-')[0];
+            
+            // Generate random stats for demo
+            document.getElementById('total-donated').textContent = '$' + (Math.floor(Math.random() * 2000) + 500).toLocaleString();
+            document.getElementById('monthly-giving').textContent = '$' + (Math.floor(Math.random() * 100) + 25);
+            document.getElementById('children-helped').textContent = (Math.floor(Math.random() * 50) + 10);
+            
+            // Toggle sidebar
+            document.getElementById('toggle-sidebar').addEventListener('click', function() {
+                document.getElementById('dashboard-sidebar').classList.toggle('active');
+            });
+            
+            // Handle logout
+            document.getElementById('logout-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('currentUser');
+                window.location.href = 'index.html';
+            });
+            
+            // Handle menu clicks
+            const menuLinks = document.querySelectorAll('.menu-link');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.id !== 'logout-btn') {
+                        e.preventDefault();
+                        
+                        menuLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        const section = this.getAttribute('data-section');
+                        document.querySelector('.page-title').textContent = 
+                            section.charAt(0).toUpperCase() + section.slice(1);
+                    }
+                });
+            });
+        }
+
+        // Initialize the page when loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initPage();
+            
+            // Mobile menu toggle
+            document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+                document.getElementById('nav-menu').classList.toggle('active');
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
         });
     </script>
 </body>
